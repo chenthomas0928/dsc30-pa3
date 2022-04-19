@@ -15,7 +15,7 @@ public class StandardUser extends User {
         if (me == null) {
             throw new IllegalArgumentException();
         }
-        if (this)
+        
         return null;
     }
 
