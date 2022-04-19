@@ -14,24 +14,45 @@ public abstract class User {
     protected ArrayList<MessageExchange> rooms;
 
     public User(String username, String bio) {
-        /* TODO */
+        if (username == null || bio == null) {
+            throw new IllegalArgumentException();
+        }
+        else {
+            this.username = username;
+            this.bio = bio;
+        }
     }
 
     public void setBio(String newBio) {
-        /* TODO */
+        if (newBio == null) {
+            throw new IllegalArgumentException();
+        }
+        else {
+            this.bio = newBio;
+        }
     }
 
     public String displayBio() {
-        /* TODO */
-        return null;
+
+        return this.bio;
     }
 
     public void joinRoom(MessageExchange me) throws OperationDeniedException {
-        /* TODO */
+        if (me == null) {
+            throw new IllegalArgumentException();
+        }
+        else {
+            me.addUser(this);
+        }
     }
 
     public void quitRoom(MessageExchange me) {
-        /* TODO */
+        if (me == null) {
+            throw new IllegalArgumentException();
+        }
+        else {
+            me.removeUser(this);
+        }
     }
 
     public MessageExchange createChatRoom(ArrayList<User> users) {
