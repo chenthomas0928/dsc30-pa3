@@ -6,7 +6,7 @@ public class PremiumUser extends User {
     private String customTitle;
 
     public PremiumUser(String username, String bio) {
-        /* TODO */
+        super(username, bio);
     }
 
     public String fetchMessage(MessageExchange me) {

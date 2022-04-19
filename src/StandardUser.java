@@ -8,17 +8,20 @@ public class StandardUser extends User {
             "This message cannot be fetched because you are not a premium user.";
 
     public StandardUser(String username, String bio) {
-        /* TODO */
+        super(username,bio);
     }
 
     public String fetchMessage(MessageExchange me) {
-        /* TODO */
+        if (me == null) {
+            throw new IllegalArgumentException();
+        }
+        if (this)
         return null;
     }
 
     public String displayName() {
-        /* TODO */
-        return "Placeholder";  // placeholder for checkpoint test.
+
+        return this.username;  // placeholder for checkpoint test.
                                // replace it with your own after checkpoint submission.
     }
 }

@@ -51,7 +51,7 @@ public abstract class User {
             throw new IllegalArgumentException();
         }
         else {
-            me.removeUser(this);
+
         }
     }
 
