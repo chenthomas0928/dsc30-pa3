@@ -10,18 +10,27 @@ public class PremiumUser extends User {
     }
 
     public String fetchMessage(MessageExchange me) {
-        /* TODO */
-        return null;
+        if (me == null) {
+            throw new IllegalArgumentException();
+        }
+        if (this.rooms.contains(me) == false) {
+            throw new IllegalArgumentException();
+        }
+        String result = "";
+        for (int i = 0; i < me.getLog(this).size(); i++) {
+            result += me.getLog(this).get(i) + "\n";
+        }
+        return result;
     }
 
     public String displayName() {
-        /* TODO */
-        return "<Premium> Marina";  // placeholder for checkpoint test.
+
+        return "<" + this.customTitle + "> " + this.username;  // placeholder for checkpoint test.
                                     // replace it with your own after checkpoint submission.
     }
 
     public void setCustomTitle(String newTitle) {
-        /* TODO */
+        this.customTitle = newTitle;
     }
 
     public MessageExchange createModeratedRoom(ArrayList<User> users) {

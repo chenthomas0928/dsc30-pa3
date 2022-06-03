@@ -15,8 +15,20 @@ public class StandardUser extends User {
         if (me == null) {
             throw new IllegalArgumentException();
         }
-        
-        return null;
+        if (this.rooms.contains(me) == false) {
+            throw new IllegalArgumentException();
+        }
+        String result = "";
+        for (int i = 0; i < me.getLog(this).size(); i++) {
+            if (me.getLog(this).get(i) instanceof TextMessage) {
+                result += me.getLog(this).get(i) + "\n";
+
+            }
+            else {
+                result += FETCH_DENIED_MSG + "\n";
+            }
+        }
+        return result;
     }
 
     public String displayName() {
